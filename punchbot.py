@@ -18,7 +18,7 @@ def main():
     s.send("NICK {}\r\n".format(cfg.NICK).encode("utf-8"))
     s.send("JOIN {}\r\n".format(cfg.CHAN).encode("utf-8"))
 
-    CHAT_MSG = re.compile(r"^:\w+!w+@w+.tmi\.twitch\.tv PRIMSG #\w+ :")
+    CHAT_MSG = re.compile(r"^:\w+!\w+@\w+\.tmi\.twitch\.tv PRIVMSG #\w+ :")
     utils.chat(s, "What up party people!")
 
     thread.start_new_thread(utils.threadFillOpList, ())
@@ -32,7 +32,7 @@ def main():
             message = CHAT_MSG.sub("", response)
             print(response)
 
-            if message.strip() == "!hey" :
+            if message.strip() == "!hey":
                 utils.chat(s, "What's up dude")
         sleep(1)
 
