@@ -26,7 +26,7 @@ def main():
 
     while True:
         response = s.recv(1024).decode("utf-8")
-        if reponse == "PING :tmi.tiwtch.tv\r\n":
+        if response == "PING :tmi.tiwtch.tv\r\n":
             s.send("PONG :tmi.twitch.tv\r\n".encode("utf-8"))
         else:
             username = re.search(r"\w+", response).group(0)
@@ -36,6 +36,9 @@ def main():
             if message.strip() == "!dead":
                 deaths = deaths + 1
                 utils.chat(s, "Drew has died " + deaths + "times")
+
+            if message.strip() == "!hey":
+                utils.chat(s, "What's up dude")
         sleep(1)
 
 
