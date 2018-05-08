@@ -9,7 +9,6 @@ import time
 import thread
 from time import sleep
 
-deaths = 0
 
 def main():
     # Networking
@@ -33,11 +32,7 @@ def main():
             message = CHAT_MSG.sub("", response)
             print(response)
 
-            if message.strip() == "!dead":
-                deaths = deaths + 1
-                utils.chat(s, "Drew has died " + deaths + "times")
-
-            if message.strip() == "!hey":
+            if message.strip() == "!hey" :
                 utils.chat(s, "What's up dude")
         sleep(1)
 
