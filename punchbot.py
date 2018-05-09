@@ -25,17 +25,17 @@ def main():
 
     while True:
         response = s.recv(1024).decode("utf-8")
-        if response == "PING :tmi.tiwtch.tv\r\n":
+        if response == "PING :tmi.twitch.tv\r\n":
             s.send("PONG\r\n".encode("utf-8"))
         else:
             username = re.search(r"\w+", response).group(0)
             message = CHAT_MSG.sub("", response)
             print(response)
 
-            if message.strip() == "!hey":
-                utils.chat(s, "What's up dude")
-            if message.strip() == "best":
-                utils.chat(s, "PunchBot is the best")
+        if message.strip() == "!hey":
+            utils.chat(s, "What's up dude")
+        if message.strip() == "best":
+            utils.chat(s, "PunchBot is the best")
         sleep(1)
 
 
